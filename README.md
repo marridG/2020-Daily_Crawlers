@@ -17,11 +17,11 @@ Some Crawlers for Daily Data Collection
 
 
 
-## Install
+## Usage
 - Simply clone/download the files in the repository
-- Ensure all "`import`"s are installed
-- Check Path
-- Run codes
+- Ensure all "`import`"s (modules/packages) are installed
+- Specify path, check global variables
+- Run the codes and *have a cup of coffee* when you wait for the execution
 
 ## Declaration
 All data belong to the corresponding source sites. The crawlers (sometimes together with crawled data) are provided only for proper private use. Anyone who risk abusing, in any forms, is to be blamed and should shoulder the responsibility on his/her own.  
