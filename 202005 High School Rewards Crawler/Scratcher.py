@@ -19,7 +19,7 @@ URL_ROOT = "http://gs.cyscc.org/"
 #    |--- FILE_RES_NAME     <file>      result file, in json format
 #    |--- FILE_LOG_NAME     <file>      log file
 #    |--- FILE_NL_SRC_NAME  <file>      "cache" like, contains all the sources of name lists
-FILE_ROOT = "D:/Workspace/Pycharm/Daily/202005 High School Rewards Crawler/data/"
+FILE_ROOT = ".../202005 High School Rewards Crawler/data/"
 FILE_DES_ROOT = "全国青少年科技竞赛获奖名单 - " + datetime.now().strftime("%Y%m%d") + "/"
 FILE_DECL_NAME = "Declaration.txt"
 FILE_DES_CERT = "Sample Certificates/"
