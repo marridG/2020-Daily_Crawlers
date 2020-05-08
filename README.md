@@ -2,16 +2,16 @@
 Written in Python 3.7.6  
 Some Crawlers for Daily Data Collection  
 
-<!-- MarkdownTOC -->
+<!-- MarkdownTOC  autolink="true" -->
 
-- Install
-- Declaration
-- Crawlers Description
-  - 202005 High School Rewards Crawler
-    - Description
-    - Sample File Tree
-    - Get Started
-    - Results
+- [Usage](#usage)
+- [Declaration](#declaration)
+- [Crawlers Description](#crawlers-description)
+  - [202005 High School Rewards Crawler](#202005-high-school-rewards-crawler)
+    - [Description](#description)
+    - [Sample File Tree](#sample-file-tree)
+    - [Get Started](#get-started)
+    - [Results](#results)
 
 <!-- /MarkdownTOC -->
 
