@@ -38,14 +38,14 @@ Refer to the corresponding data source sites for more detailed privacy, distribu
 - **Source**: [Children and Youth Science Center China Association for Science and Technology](http://gs.cyscc.org/)
 
 #### Sample File Tree
-    `--- FILE_ROOT            <folder>    make sure path exists
-     |--- FILE_CACHE_PATH     <folder>    to be deleted when successfully terminated
-     |--- FILE_DES_ROOT       <folder>    root of crawled results
-       |--- FILE_DES_CERT     <folder>    stores the sample certificates
-       |--- FILE_DECL_NAME    <file>      declarations from the source
-       |--- FILE_RES_NAME     <file>      result file, in json format
-       |--- FILE_LOG_NAME     <file>      log file
-       |--- FILE_NL_SRC_NAME  <file>      "cache" like, contains all the sources of name lists`
+`--- FILE_ROOT            <folder>    make sure path exists
+ |--- FILE_CACHE_PATH     <folder>    to be deleted when successfully terminated
+ |--- FILE_DES_ROOT       <folder>    root of crawled results
+   |--- FILE_DES_CERT     <folder>    stores the sample certificates
+   |--- FILE_DECL_NAME    <file>      declarations from the source
+   |--- FILE_RES_NAME     <file>      result file, in json format
+   |--- FILE_LOG_NAME     <file>      log file
+   |--- FILE_NL_SRC_NAME  <file>      "cache" like, contains all the sources of name lists`
 
 #### Get Started
 Please check the following necessary Python modules/packages  
