@@ -15,10 +15,12 @@ Some Crawlers for Daily Data Collection
     - [Sample File Tree](#sample-file-tree)
     - [Getting Started](#getting-started)
     - [Results](#results)
-- [MCM/ICM Results](#mcmicm-results)
+- [MCM/ICM Results \(Under Construction\)](#mcmicm-results-under-construction)
     - [Description](#description-1)
     - [Sample File Tree](#sample-file-tree-1)
     - [Getting Started](#getting-started-1)
+        - [Environment](#environment)
+        - [Modes and Possible Goals](#modes-and-possible-goals)
     - [Results](#results-1)
 - [High School Rewards Crawler](#high-school-rewards-crawler)
     - [Description](#description-2)
@@ -113,8 +115,8 @@ Generally speaking, the results are stored in a `.xlsx` file. They are fairly co
 
 
 
-<a id="mcmicm-results"></a>
-## MCM/ICM Results
+<a id="mcmicm-results-under-construction"></a>
+## MCM/ICM Results (Under Construction)
 <a id="description-1"></a>
 ### Description
 - **Repository Folder Name**:  `./202004 MCM_ICM Results/`
@@ -127,6 +129,7 @@ Generally speaking, the results are stored in a `.xlsx` file. They are fairly co
         * Participants on each team
         * Advisor of each team
         * Prize Types
+    For more details, please refer to <!-- todo -->
 - **Source**: [COMAP - Problems and Results](https://www.comap.com/undergraduate/contests/mcm/previous-contests.php)
 - **Special Notifications**
     + <u>Storage Concerns</u> about the Crawler: Please keep in mind that if you want to download all the certificates, an estimation of device storage should be made. For instance, 20951 certificates of Year 2020 takes up 3.18 GB (160 KB each file on average).
@@ -144,22 +147,55 @@ Generally speaking, the results are stored in a `.xlsx` file. They are fairly co
 <a id="sample-file-tree-1"></a>
 ### Sample File Tree
 ```
-  --- FILE_ROOT             <folder>    make sure path exists
-   |--- FILE_CACHE_PATH     <folder>    to be deleted when successfully terminated
-   |--- FILE_DES_ROOT       <folder>    root of crawled results
-     |--- FILE_DES_CERT     <folder>    stores the sample certificates
-     |--- FILE_DECL_NAME    <file>      declarations from the source
-     |--- FILE_RES_NAME     <file>      result file, in json format
-     |--- FILE_LOG_NAME     <file>      log file
-     |--- FILE_NL_SRC_NAME  <file>      "cache" like, contains all the sources of name lists
+  --- root                  <folder>    working root, please make sure path exists
+   |                                        (assigned as OUTPUT_DES_ROOT in Crawler, PATH in Parser)
+   |--- OUTPUT_DES_FOLDER   <folder>    [Crawler] root of crawled files
+   | |--- LOG_FILE          <file>      [Crawler] working logs
+   |
+   |--- cache_2020...       <folder>    [Parser] auto-created and deleted (if exit successfully) cache folder
+   |--- templates           <folder>    [Parser] cropping templates, files/path NOT recommended to be edited
+   |--- report_filename     <file>      [Parser] report of the parser execution (customizable)
+   |--- result_filename     <file>      [Parser] result JSON file (customizable)
+   |--- log file            <file>      [Parser] working logs (customizable)
 ```
+
 
 <a id="getting-started-1"></a>
 ### Getting Started
-Please check the following necessary Python modules/packages  
+
+<a id="environment"></a>
+#### Environment
+Please check the following necessary Python modules/packages for desired functionalities:  
+
+- Crawler only:  
 ```
-  os, shutil, datetime, logging, json, tqdm, urllib, re, bs4
+    os, sys, shutil, tqdm, urllib, socket, datetime, numpy, time
 ```
+- Parser Only:
+```
+    os, re, shutil, time, datetime, urllib, socket, copy, json, logging, 
+    cv2, fitz, pytesseract, PIL, tqdm, numpy
+```
+- Crawler and Parser:
+```
+    os, sys, re, shutil, time, datetime, urllib, socket, copy, json, logging,
+    cv2, fitz, pytesseract, PIL, tqdm, numpy
+```
+
+<a id="modes-and-possible-goals"></a>
+#### Modes and Possible Goals
+The `Crawler` and the `Parser` are initially designed to be working together. However, after further investigation and improvements, if only the information of the winners teams are requried, the `Parser` will meet with the needs fairly well. For a clearer explanation, a few possile goals are listed below, with a detailed usage:  
+1. **I just want to download all the certificates**: use `Crawler.py` only  
+2. **I just want to get all the winners info**: Two options:
+
+    - <u>Online Parser</u> (strongly recommended)  
+        + saves disk storage, one-step execution, more vulnerable to errors  
+        + use `Crawler.py` and `Parser.py`  
+    - <u>Local Parser</u>  
+        + requires great disk storage, two-steps execution, less vulnerable to errors  
+        + use `Parser.py` only  
+
+
 
 There are also some global variables that you may be concerned about, for an easier use:  
 - `URL_ROOT`: Source URL. Please do NOT modify unless invalid.  
