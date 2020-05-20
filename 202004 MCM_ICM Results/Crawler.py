@@ -1,6 +1,9 @@
-import os, sys, shutil
+import os
+import sys
+import shutil
 from tqdm import tqdm
-import urllib.request, urllib.error
+import urllib.request
+import urllib.error
 import socket
 from datetime import datetime
 import numpy as np
@@ -12,18 +15,13 @@ OUTPUT_DES_FOLDER = "2020 MCM_ICM 获奖证书-" + TIME_STAMP  # e.g. 2020 MCM_I
 LOG_FILE = "0 log.txt"
 DEBUG_MODE = True
 MAX_ATTEMPTS = 1
-MIN = 2000338
-MAX = 2099999 + 1
-
-
-# MIN = 2014906
-# MAX = 2014907
+MIN = 2000000
+MAX = 2099999
 
 
 class Logger(object):
     # Reference
     #   https://blog.csdn.net/a1379478560/article/details/91405653
-
     def __init__(self, filename="Default.log"):
         self.terminal = sys.stdout
         self.log = open(filename, mode='a', encoding='utf-8')
@@ -67,7 +65,7 @@ start = datetime.now()
 downloaded_teams = []
 non_exist_teams = []
 timed_out_teams = []
-for team_id in tqdm(range(MIN, MAX)):
+for team_id in tqdm(range(MIN, MAX + 1)):
     url = "http://comap-math.com/mcm/2020Certs/%d.pdf" % team_id
 
     response, content = None, None

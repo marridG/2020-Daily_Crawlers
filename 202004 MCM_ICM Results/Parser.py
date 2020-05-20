@@ -762,36 +762,16 @@ if __name__ == "__main__":
               "delete_cache": True, "cache_img_stream": True,
               "_online_max_conti_err": 1000, "_online_timeout": 5, "_online_max_attempts": 2}
 
-    # # Local File Tests
-    # Logger = create_logger(os.path.join(PATH, "log_test"), less_log=True)
-    # pt = PrizeParser(PATH, files_path="files_test/", logger=Logger, **kwargs)
-    # file_list = pt.get_files_names()
-    # pt.local_parser(file_list)
-
-    # # Local
+    # # Local Parser
     # Logger = create_logger(os.path.join(PATH, "log"), less_log=True)
     # pt = PrizeParser(PATH, files_path="2020 MCM_ICM 获奖证书-20200428/",
     #                  logger=Logger, **kwargs)
     # file_list = pt.get_files_names()
     # pt.local_parser(file_list)
 
-    # # Online Test
+    # # Online Parser
     # Logger = create_logger(os.path.join(PATH, "log"), less_log=True)
     # pt = PrizeParser(PATH, logger=Logger, **kwargs)
-    # pt.online_parser(range(1900001, 1900010))
-    # # pt.online_parser(range(2000003, 2000007))
-    # # pt.online_parser(range(2090007, 2099999))
-
-    # Online
-    Logger = create_logger(os.path.join(PATH, "log"), less_log=True)
-    pt = PrizeParser(PATH, logger=Logger, **kwargs)
-    pt.online_parser(range(2000000, 2099999))
-
-    # # Online Retry
-    # retry = [1901362]
-    # kwargs = {"report_filename": "report_retry", "result_filename": "result_retry.json",
-    #           "delete_cache": True, "cache_img_stream": True,
-    #           "_online_max_conti_err": 1000, "_online_timeout": 10, "_online_max_attempts": 5}
-    # Logger = create_logger(os.path.join(PATH, "log_retry"), less_log=True)
-    # pt = PrizeParser(PATH, logger=Logger, **kwargs)
-    # pt.online_parser(retry)
+    # pt.online_parser(range(2000000, 2099999))
+    
+    print("Welcome to MCM/ICM Parser. Please edit annotations to start executions.")

@@ -1,3 +1,4 @@
+
 # Daily Crawlers
 Written in `Python 3.7.6`  
 
@@ -20,7 +21,9 @@ Some Crawlers for Daily Data Collection
     - [Sample File Tree](#sample-file-tree-1)
     - [Getting Started](#getting-started-1)
         - [Environment](#environment)
-        - [Modes and Possible Goals](#modes-and-possible-goals)
+        - [Possible Goals and Modes](#possible-goals-and-modes)
+        - [Usage](#usage-1)
+        - [Customized Settings](#customized-settings)
     - [Results](#results-1)
 - [High School Rewards Crawler](#high-school-rewards-crawler)
     - [Description](#description-2)
@@ -51,10 +54,13 @@ All data belong to the corresponding source sites. The crawlers (sometimes toget
 2. Please wisely use data.
 
 
-<br><br>
 
 
 
+
+
+
+<br><br><br>
 
 
 <a id="sjtu-zhiyuan-college-namelist"></a>
@@ -69,6 +75,7 @@ All data belong to the corresponding source sites. The crawlers (sometimes toget
     + Students' profiles
 - **Source**: [SJTU Zhiyuan College - Students](https://zhiyuan.sjtu.edu.cn/articles/625)
 
+
 <a id="sample-file-tree"></a>
 ### Sample File Tree
 ```
@@ -78,6 +85,7 @@ All data belong to the corresponding source sites. The crawlers (sometimes toget
      |--- &&&.jpg          <file>      profiles, filename format "major year id name.jpg"
 ```
 
+
 <a id="getting-started"></a>
 ### Getting Started
 Please check the following necessary Python modules/packages  
@@ -85,15 +93,17 @@ Please check the following necessary Python modules/packages
   os, shutil, datetime, time, logging, json, tqdm, urllib, re, bs4, string, lxml, html2text, numpy, pandas
 ```
 
-There are also some global variables that you may be concerned about, for an easier use:  
+There are also some global variables that you may be concerned about, for customized settings and an easier use:
+
 - `ROOT`: Root URL of source site. Please do not modify unless invalid.
-- `NAME_LIST_URL`: URL of source page. Please do not modify unless invalid.  
-- `OUTPUT_DES_ROOT`: Project-based workspace. Please make sure such a path exists. All file operations are done in such a path.  
-- `TIME_STAMP`: Timestamp, used in path naming.  
-- `OUTPUT_DES_FOLDER`: Path (relative) where the results of a crawl are stored, default labeled with timestamp. All results files operations are done in such a path.  
-- `SAVE_PAGE`: Mode selection, whether to save the web pages.  
-- `SLEEP_INTERVAL`: Sleep intervals for executions to halt. For system use only, modifications NOT recommended.  
-- `DEBUG_MODE`: Mode selection, whether to show less debug logs.  
+- `NAME_LIST_URL`: URL of source page. Please do not modify unless invalid.
+- `OUTPUT_DES_ROOT`: Project-based workspace. Please make sure such a path exists. All file operations are done in such a path.
+- `TIME_STAMP`: Timestamp, used in path naming.
+- `OUTPUT_DES_FOLDER`: Path (relative) where the results of a crawl are stored, default labeled with timestamp. All results files operations are done in such a path.
+- `SAVE_PAGE`: Mode selection, whether to save the web pages.
+- `SLEEP_INTERVAL`: Sleep intervals for executions to halt. For system use only, modifications NOT recommended.
+- `DEBUG_MODE`: Mode selection, whether to show less debug logs.
+
 
 <a id="results"></a>
 ### Results
@@ -101,18 +111,12 @@ Generally speaking, the results are stored in a `.xlsx` file. They are fairly co
 
 
 
-<br><br>
 
 
 
 
 
-
-
-
-
-
-
+<br><br><br>
 
 
 <a id="mcmicm-results-under-construction"></a>
@@ -131,6 +135,13 @@ Generally speaking, the results are stored in a `.xlsx` file. They are fairly co
         * Prize Types
     For more details, please refer to <!-- todo -->
 - **Source**: [COMAP - Problems and Results](https://www.comap.com/undergraduate/contests/mcm/previous-contests.php)
+- **Team Numbers Formats (Years not Complete)**
+    
+    Year    | Format        | Format (RegExp)   | Possible Minimum  | Possible Maximum  | Example
+    :-:     | :-:           | :-:               | :-:               | :-:               | :-:
+    2020    | 20\*\*\*\*\*  | `^20\d{5}\$`      | 2000000           | 2099999           | 2004664
+    2019    | 19\*\*\*\*\*  | `^19\d{5}\$`      | 1900000           | 1999999           | 1901362
+
 - **Special Notifications**
     + <u>Storage Concerns</u> about the Crawler: Please keep in mind that if you want to download all the certificates, an estimation of device storage should be made. For instance, 20951 certificates of Year 2020 takes up 3.18 GB (160 KB each file on average).
     + <u> Execution Resources Concerns</u> about the Crawler and the Parser: A large amount of resources (time, computational resources, Internet service, etc.) will be consumed during the process. It is much more critical for the Parser. Here are some of my execution time numbers (hour:minute:second):  
@@ -144,6 +155,7 @@ Generally speaking, the results are stored in a `.xlsx` file. They are fairly co
     + <u>During-Execution Cache Designs</u>: Currently, either memory cache or file I/O burdens the device a lot.  
 
 
+<br>
 <a id="sample-file-tree-1"></a>
 ### Sample File Tree
 ```
@@ -160,8 +172,10 @@ Generally speaking, the results are stored in a `.xlsx` file. They are fairly co
 ```
 
 
+<br>
 <a id="getting-started-1"></a>
 ### Getting Started
+
 
 <a id="environment"></a>
 #### Environment
@@ -171,44 +185,85 @@ Please check the following necessary Python modules/packages for desired functio
 ```
     os, sys, shutil, tqdm, urllib, socket, datetime, numpy, time
 ```
-- Parser Only:
+- Parser Only:  
 ```
     os, re, shutil, time, datetime, urllib, socket, copy, json, logging, 
     cv2, fitz, pytesseract, PIL, tqdm, numpy
 ```
-- Crawler and Parser:
+- Crawler and Parser:  
 ```
     os, sys, re, shutil, time, datetime, urllib, socket, copy, json, logging,
     cv2, fitz, pytesseract, PIL, tqdm, numpy
 ```
 
-<a id="modes-and-possible-goals"></a>
-#### Modes and Possible Goals
-The `Crawler` and the `Parser` are initially designed to be working together. However, after further investigation and improvements, if only the information of the winners teams are requried, the `Parser` will meet with the needs fairly well. For a clearer explanation, a few possile goals are listed below, with a detailed usage:  
-1. **I just want to download all the certificates**: use `Crawler.py` only  
-2. **I just want to get all the winners info**: Two options:
 
-    - <u>Online Parser</u> (strongly recommended)  
-        + saves disk storage, one-step execution, more vulnerable to errors  
-        + use `Crawler.py` and `Parser.py`  
-    - <u>Local Parser</u>  
-        + requires great disk storage, two-steps execution, less vulnerable to errors  
-        + use `Parser.py` only  
+<a id="possible-goals-and-modes"></a>
+#### Possible Goals and Modes
+The `Crawler` and the `Parser` are initially designed to be working together. However, after further investigation and improvements, if only the information of the winners teams are requried, the `Parser` will meet with the needs fairly well. For a clearer explanation, a few possile goals are listed below:
+
+1. **Only all the certificates**: <u>Crawler Only</u>, use `Crawler.py` only  
+2. **Only all the winners info**: Two options:
+    - <u>Online Parser</u> (strongly recommended)
+        + saves disk storage, one-step execution, more vulnerable to errors
+        + use `Parser.py` only
+    - <u>Local Parser</u>
+        + requires great disk storage, two-steps execution, less vulnerable to errors
+        + use `Crawler.py` and `Parser.py`        
+3. **All the certificates and the winners info**: <u>Local Parser</u>, use `Crawler.py` and `Parser.py`
 
 
+<a id="usage-1"></a>
+#### Usage
+1. **Crawler Only**: Simply specify the required global variables and run the codes.
+2. **Local Parser**: Please follow these steps:
+    + Execute `Crawler.py` (the same as <u>Crawler Only</u>).
+    + Execute `Parser.py`. (Sample codes block labeled with \"Local Parser\")
+        * Instantiate class `PrzieParser` (e.g. as `<object>` named `pt`).
+            - Specify the folder of the crawled certificates as `files_path`.
+            - *[Optional] Specify a logger. If not specified, a class-level default logger will be used.*
+            - Specify extra `kwargs` settings.
+        * Call method `pt.get_files_names()` to get the list of to-parse files (e.g. as `<list>` named `file_list`).
+        * *[Optional] Slice the files list for tests or other goals.*
+        * Call `pt.local_parser(file_list)` to run the parser.
+        * After execution is finished, take a look at the results.
+3. **Online Parser**: Please follow these steps:
+    + Execute `Crawler.py` (the same as <u>Crawler Only</u>).
+    + Execute `Parser.py`. (Sample codes block labeled with \"Online Parser\")
+        * Instantiate class `PrzieParser` (e.g. as `<object>` named `pt`).
+            - *[Optional] Specify a logger. If not specified, a class-level default logger will be used.*
+            - Specify extra `kwargs` settings.  
+            <u>Advanced Settings</u>: while parsing, for middle-step cache files, whether to handle data stream or to read/write files. Specified in kwarg `cache_img_stream`. Recommend to do so for machines of high computational capabilities, while not for machines of high I/O performance.
+        * Call method `pt.online_parser()` with parameter of `<list>` of `<int>`, indicating list of to-parse team numbers
+        * After execution is finished, take a look at the results.  
 
-There are also some global variables that you may be concerned about, for an easier use:  
-- `URL_ROOT`: Source URL. Please do NOT modify unless invalid.  
-- `FILE_ROOT`: Project-based workspace, also the path where all results and caches are stored. Please make sure such a path exists. All file operations are done in such a path.  
-- `FILE_DES_ROOT`: Path (relative) where the results of a crawl are stored, default labeled with a timestamp.  
-- `FILE_DECL_NAME`: File name of the file where the declarations on the source site is stored.  
-- `FILE_DES_CERT`: Path (relative) where the files related to the sample certificates are stored.  
-- `FILE_RES_NAME`: File name of the file where the name lists results are stored.  
-- `FILE_LOG_NAME`: File name of the file where logs are stored.  
-- `FILE_NL_SRC_NAME`: File name of the file where the links and info of name lists are stored.  
-- `FILE_CACHE_PATH`: Path (relative) of the cache folder. Modifications NOT recommended.  
-- `TARGET_SAMPLE_CERT`: Mode selection, whether to crawl the sample certificates.  
-- `LESS_CONSOLE_LOG`: Mode selection, whether to show less debug logs in console.  
+
+<a id="customized-settings"></a>
+#### Customized Settings
+There are also some global variables that you may be concerned about, for customized settings and an easier use:  
+
+1. In `Crawler.py`
+    + `OUTPUT_DES_ROOT`: Project-based workspace, also the path where all results and caches are stored. Please make sure such a path exists. All file operations are done in such a path.
+    + `TIME_STAMP`: Timestamp, used in path naming.
+    + `OUTPUT_DES_FOLDER`: Path (relative) where the results of a crawl are stored, default labeled with a timestamp.
+    + `LOG_FILE`: Filename of the log file
+    + `DEBUG_MODE`: Mode selection, whether to show less debug logs.
+    + `MAX_ATTEMPTS`: Maximum attempts counts while requesting ertificates from source site.
+    + `MIN`: Lower bound (include itself) of the to-crawl teams numbers.
+    + `MAX`: Upper bound (include itself) of the to-crawl teams numbers.
+
+2. `Parser.py`, `kwargs` while instantiating class `PrizeParser`
+    + `root`: **REQUIRED**. Default workspace: where required files are stored, etc.
+    + `files_path`: Local path (relative to `root`) where PDF(s) are/is stored, default as `files/`
+    + `templates_path`: Local path (relative to `root`) where REQUIRED templates are stored, default as `templates/`
+    + `logger`: Logger object, default as `None`.
+    + `delete_cache`: Whether to delete cache files after execution, default as `True`.
+    + `cache_img_stream`: Whether to use stream to pass cache images, default as `True`.
+    + `report_filename`: Local path (relative to `root`) where report file is stored, default as `report/`
+    + `result_filename`: Local path (relative to `root`) where result json file is stored, default as `result.json`
+    + `_online_max_conti_err`: For online parser only, maximum number of continuous errors, default as `1000`.
+    + `_online_timeout`: For online parser only, timeout in seconds, default as `5`.
+    + `_online_max_attempts`: For online parser only, max failure attempts, default as `2`.
+
 
 <a id="results-1"></a>
 ### Results
@@ -216,14 +271,12 @@ Generally speaking, the results are stored in `.json` files. They are fairly com
 
 
 
-<br><br>
 
 
 
 
 
-
-
+<br><br><br>
 
 
 <a id="high-school-rewards-crawler"></a>
@@ -258,18 +311,19 @@ Please check the following necessary Python modules/packages
   os, shutil, datetime, logging, json, tqdm, urllib, re, bs4
 ```
 
-There are also some global variables that you may be concerned about, for an easier use:   
-- `URL_ROOT`: Source URL. Please do NOT modify unless invalid.   
-- `FILE_ROOT`: Project-based workspace, also the path where all results and caches are stored. Please make sure such a path exists. All file operations are done in such a path.  
-- `FILE_DES_ROOT`: Path (relative) where the results of a crawl are stored, default labeled with a timestamp.  
-- `FILE_DECL_NAME`: File name of the file where the declarations on the source site is stored.  
-- `FILE_DES_CERT`: Path (relative) where the files related to the sample certificates are stored.  
-- `FILE_RES_NAME`: File name of the file where the name lists results are stored.  
-- `FILE_LOG_NAME`: File name of the file where logs are stored.  
-- `FILE_NL_SRC_NAME`: File name of the file where the links and info of name lists are stored.  
-- `FILE_CACHE_PATH`: Path (relative) of the cache folder. Modifications NOT recommended.  
-- `TARGET_SAMPLE_CERT`: Mode selection, whether to crawl the sample certificates.  
-- `LESS_CONSOLE_LOG`: Mode selection, whether to show less debug logs in console.  
+There are also some global variables that you may be concerned about, for customized settings and an easier use:   
+
+- `URL_ROOT`: Source URL. Please do NOT modify unless invalid.
+- `FILE_ROOT`: Project-based workspace, also the path where all results and caches are stored. Please make sure such a path exists. All file operations are done in such a path.
+- `FILE_DES_ROOT`: Path (relative) where the results of a crawl are stored, default labeled with a timestamp.
+- `FILE_DECL_NAME`: File name of the file where the declarations on the source site is stored.
+- `FILE_DES_CERT`: Path (relative) where the files related to the sample certificates are stored.
+- `FILE_RES_NAME`: File name of the file where the name lists results are stored.
+- `FILE_LOG_NAME`: File name of the file where logs are stored.
+- `FILE_NL_SRC_NAME`: File name of the file where the links and info of name lists are stored.
+- `FILE_CACHE_PATH`: Path (relative) of the cache folder. Modifications NOT recommended.
+- `TARGET_SAMPLE_CERT`: Mode selection, whether to crawl the sample certificates.
+- `LESS_CONSOLE_LOG`: Mode selection, whether to show less debug logs in console.
 
 <a id="results-2"></a>
 ### Results
