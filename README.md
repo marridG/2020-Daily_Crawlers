@@ -133,7 +133,7 @@ Generally speaking, the results are stored in a `.xlsx` file. They are fairly co
         * Participants on each team
         * Advisor of each team
         * Prize Types
-    For more details, please refer to <!-- todo -->
+    For more details, please refer to [Possible Goals and Modes](#possible-goals-and-modes).
 - **Source**: [COMAP - Problems and Results](https://www.comap.com/undergraduate/contests/mcm/previous-contests.php)
 - **Team Numbers Formats (Years not Complete)**
     
@@ -142,6 +142,7 @@ Generally speaking, the results are stored in a `.xlsx` file. They are fairly co
     2020    | 20\*\*\*\*\*  | `^20\d{5}\$`      | 2000000           | 2099999           | 2004664
     2019    | 19\*\*\*\*\*  | `^19\d{5}\$`      | 1900000           | 1999999           | 1901362
 
+- **Sample Full Results**: (Year 2019, 2020) `./202004 MCM_ICM Results/MCM_ICM/`, as `2019 results.json`, `2020 results.json`.
 - **Special Notifications**
     + <u>Storage Concerns</u> about the Crawler: Please keep in mind that if you want to download all the certificates, an estimation of device storage should be made. For instance, 20951 certificates of Year 2020 takes up 3.18 GB (160 KB each file on average).
     + <u> Execution Resources Concerns</u> about the Crawler and the Parser: A large amount of resources (time, computational resources, Internet service, etc.) will be consumed during the process. It is much more critical for the Parser. Here are some of my execution time numbers (hour:minute:second):  
