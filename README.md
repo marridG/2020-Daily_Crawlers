@@ -79,10 +79,10 @@ All data belong to the corresponding source sites. The crawlers (sometimes toget
 <a id="sample-file-tree"></a>
 ### Sample File Tree
 ```
-  --- OUTPUT_DES_ROOT      <folder>    make sure path exists
-   |--- OUTPUT_DES_FOLDER  <folder>    root of crawled results
-     |--- &&&.xlsx         <file>      result file
-     |--- &&&.jpg          <file>      profiles, filename format "major year id name.jpg"
+  ─┬─ OUTPUT_DES_ROOT      <folder>    make sure path exists
+   └─┬─ OUTPUT_DES_FOLDER  <folder>    root of crawled results
+     ├─── &&&.xlsx         <file>      result file
+     └─── &&&.jpg          <file>      profiles, filename format "major year id name.jpg"
 ```
 
 
@@ -160,16 +160,16 @@ Generally speaking, the results are stored in a `.xlsx` file. They are fairly co
 <a id="sample-file-tree-1"></a>
 ### Sample File Tree
 ```
-  --- root                  <folder>    working root, please make sure path exists
-   |                                        (assigned as OUTPUT_DES_ROOT in Crawler, PATH in Parser)
-   |--- OUTPUT_DES_FOLDER   <folder>    [Crawler] root of crawled files
-   | |--- LOG_FILE          <file>      [Crawler] working logs
-   |
-   |--- cache_2020...       <folder>    [Parser] auto-created and deleted (if exit successfully) cache folder
-   |--- templates           <folder>    [Parser] cropping templates, files/path NOT recommended to be edited
-   |--- report_filename     <file>      [Parser] report of the parser execution (customizable)
-   |--- result_filename     <file>      [Parser] result JSON file (customizable)
-   |--- log file            <file>      [Parser] working logs (customizable)
+  ─┬─ root                  <folder>    working root, please make sure path exists
+   │                                        (assigned as OUTPUT_DES_ROOT in Crawler, PATH in Parser)
+   ├─┬─ OUTPUT_DES_FOLDER   <folder>    [Crawler] root of crawled files
+   │ └─── LOG_FILE          <file>      [Crawler] working logs
+   │
+   ├─── cache_2020...       <folder>    [Parser] auto-created and deleted (if exit successfully) cache folder
+   ├─── templates           <folder>    [Parser] cropping templates, files/path NOT recommended to be edited
+   ├─── report_filename     <file>      [Parser] report of the parser execution (customizable)
+   ├─── result_filename     <file>      [Parser] result JSON file (customizable)
+   └─── log file            <file>      [Parser] working logs (customizable)
 ```
 
 
@@ -295,14 +295,14 @@ Generally speaking, the results are stored in `.json` files. They are fairly com
 <a id="sample-file-tree-2"></a>
 ### Sample File Tree
 ```
-  --- FILE_ROOT             <folder>    make sure path exists
-   |--- FILE_CACHE_PATH     <folder>    to be deleted when successfully terminated
-   |--- FILE_DES_ROOT       <folder>    root of crawled results
-     |--- FILE_DES_CERT     <folder>    stores the sample certificates
-     |--- FILE_DECL_NAME    <file>      declarations from the source
-     |--- FILE_RES_NAME     <file>      result file, in json format
-     |--- FILE_LOG_NAME     <file>      log file
-     |--- FILE_NL_SRC_NAME  <file>      "cache" like, contains all the sources of name lists
+  ─┬─  FILE_ROOT             <folder>    make sure path exists
+   ├─── FILE_CACHE_PATH     <folder>    to be deleted when successfully terminated
+   └─┬─ FILE_DES_ROOT       <folder>    root of crawled results
+     ├─── FILE_DES_CERT     <folder>    stores the sample certificates
+     ├─── FILE_DECL_NAME    <file>      declarations from the source
+     ├─── FILE_RES_NAME     <file>      result file, in json format
+     ├─── FILE_LOG_NAME     <file>      log file
+     └─── FILE_NL_SRC_NAME  <file>      "cache" like, contains all the sources of name lists
 ```
 
 <a id="getting-started-2"></a>
