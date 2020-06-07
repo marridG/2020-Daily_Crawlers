@@ -1,3 +1,0 @@
-tqdm, bs4, string, lxml, html2text, numpy, pandas
-
-cv2, fitz, pytesseract, PIL
