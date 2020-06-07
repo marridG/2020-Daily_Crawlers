@@ -2,7 +2,7 @@
 # Daily Crawlers
 Written in `Python 3.7.6`  
 
-Some Crawlers for Daily Data Collection  
+Some Crawlers for Daily Data Collection, through Naive Approaches (without scrapy Framework)  
 
 <br>
 
