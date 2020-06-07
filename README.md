@@ -269,7 +269,7 @@ Generally speaking, the results are stored in `.json` files. They are fairly com
 <a id="sample-file-tree-2"></a>
 ### Sample File Tree
 ```
-  ─┬─  FILE_ROOT             <folder>    make sure path exists
+  ─┬─  FILE_ROOT            <folder>    make sure path exists
    ├─── FILE_CACHE_PATH     <folder>    to be deleted when successfully terminated
    └─┬─ FILE_DES_ROOT       <folder>    root of crawled results
      ├─── FILE_DES_CERT     <folder>    stores the sample certificates
