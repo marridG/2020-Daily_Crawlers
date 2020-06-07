@@ -140,16 +140,16 @@ Generally speaking, the results are stored in a `.xlsx` file. They are fairly co
 
 - **Sample Full Results**: (Year 2019, 2020) `./202004 MCM_ICM Results/MCM_ICM/`, as `2019 results.json`, `2020 results.json`.
 - **Special Notifications**
-    + <u>Storage Concerns</u> about the Crawler: Please keep in mind that if you want to download all the certificates, an estimation of device storage should be made. For instance, 20951 certificates of Year 2020 takes up 3.18 GB (160 KB each file on average).
-    + <u> Execution Resources Concerns</u> about the Crawler and the Parser: A large amount of resources (time, computational resources, Internet service, etc.) will be consumed during the process. It is much more critical for the Parser. Here are some of my execution time numbers (hour:minute:second):  
+    + **Storage Concerns** about the Crawler: Please keep in mind that if you want to download all the certificates, an estimation of device storage should be made. For instance, 20951 certificates of Year 2020 takes up 3.18 GB (160 KB each file on average).
+    + **Execution Resources Concerns** about the Crawler and the Parser: A large amount of resources (time, computational resources, Internet service, etc.) will be consumed during the process. It is much more critical for the Parser. Here are some of my execution time numbers (hour:minute:second):  
         * Year 2020, Crawler: 20:52:01 (20951 files)
         * Year 2020, Parser - Online Approach: 71:13:33 (20960 items)
         * Year 2019, Parser - Online Approach: 81:40:47 (25365 items)  
 - **Possible Future Improvemnts**
-    + <u>Efficiency</u>: Although great efforts have been taken to imporve the performance, to ensure the accuracy, network connection problems and the usage of some modules still result in a low efficiency. 
-    + <u>PDF miner</u>: `fitz` is used here to convert PDF files containing rederable text areas to image data and then conduct further steps. If it is possible to parse text directly, great amount of time will be saved.
-    + <u>Accuracy</u>: Frankly speaking, some of the particpants\' names are given in languages like Chinese instead of English. Although `pytesseract` supportss such languages, its accuracy is still a problem. As a result, non-English characters will possibly not be parsed well enough.
-    + <u>During-Execution Cache Designs</u>: Currently, either memory cache or file I/O burdens the device a lot.  
+    + **Efficiency**: Although great efforts have been taken to imporve the performance, to ensure the accuracy, network connection problems and the usage of some modules still result in a low efficiency. 
+    + **PDF miner**: `fitz` is used here to convert PDF files containing rederable text areas to image data and then conduct further steps. If it is possible to parse text directly, great amount of time will be saved.
+    + **Accuracy**: Frankly speaking, some of the particpants\' names are given in languages like Chinese instead of English. Although `pytesseract` supportss such languages, its accuracy is still a problem. As a result, non-English characters will possibly not be parsed well enough.
+    + **During-Execution Cache Designs**: Currently, either memory cache or file I/O burdens the device a lot.  
 
 
 <br>
@@ -178,22 +178,22 @@ Generally speaking, the results are stored in a `.xlsx` file. They are fairly co
 #### Possible Goals and Modes
 The `Crawler` and the `Parser` are initially designed to be working together. However, after further investigation and improvements, if only the information of the winners teams are requried, the `Parser` will meet with the needs fairly well. For a clearer explanation, a few possile goals are listed below:
 
-1. **Only all the certificates**: <u>Crawler Only</u>, use `Crawler.py` only  
+1. **Only all the certificates**: **Crawler Only**, use `Crawler.py` only  
 2. **Only all the winners info**: Two options:
-    - <u>Online Parser</u> (strongly recommended)
+    - **Online Parser** (strongly recommended)
         + saves disk storage, one-step execution, more vulnerable to errors
         + use `Parser.py` only
-    - <u>Local Parser</u>
+    - **Local Parser**
         + requires great disk storage, two-steps execution, less vulnerable to errors
         + use `Crawler.py` and `Parser.py`        
-3. **All the certificates and the winners info**: <u>Local Parser</u>, use `Crawler.py` and `Parser.py`
+3. **All the certificates and the winners info**: **Local Parser**, use `Crawler.py` and `Parser.py`
 
 
 <a id="usage-1"></a>
 #### Usage
 1. **Crawler Only**: Simply specify the required global variables and run the codes.
 2. **Local Parser**: Please follow these steps:
-    + Execute `Crawler.py` (the same as <u>Crawler Only</u>).
+    + Execute `Crawler.py` (the same as **Crawler Only**).
     + Execute `Parser.py`. (Sample codes block labeled with \"Local Parser\")
         * Instantiate class `PrzieParser` (e.g. as `<object>` named `pt`).
             - Specify the folder of the crawled certificates as `files_path`.
@@ -204,12 +204,12 @@ The `Crawler` and the `Parser` are initially designed to be working together. Ho
         * Call `pt.local_parser(file_list)` to run the parser.
         * After execution is finished, take a look at the results.
 3. **Online Parser**: Please follow these steps:
-    + Execute `Crawler.py` (the same as <u>Crawler Only</u>).
+    + Execute `Crawler.py` (the same as **Crawler Only**).
     + Execute `Parser.py`. (Sample codes block labeled with \"Online Parser\")
         * Instantiate class `PrzieParser` (e.g. as `<object>` named `pt`).
             - *[Optional] Specify a logger. If not specified, a class-level default logger will be used.*
             - Specify extra `kwargs` settings.  
-            <u>Advanced Settings</u>: while parsing, for middle-step cache files, whether to handle data stream or to read/write files. Specified in kwarg `cache_img_stream`. Recommend to do so for machines of high computational capabilities, while not for machines of high I/O performance.
+            **Advanced Settings**: while parsing, for middle-step cache files, whether to handle data stream or to read/write files. Specified in kwarg `cache_img_stream`. Recommend to do so for machines of high computational capabilities, while not for machines of high I/O performance.
         * Call method `pt.online_parser()` with parameter of `<list>` of `<int>`, indicating list of to-parse team numbers
         * After execution is finished, take a look at the results.  
 
