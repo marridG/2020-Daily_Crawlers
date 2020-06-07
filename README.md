@@ -152,7 +152,6 @@ Generally speaking, the results are stored in a `.xlsx` file. They are fairly co
     + **During-Execution Cache Designs**: Currently, either memory cache or file I/O burdens the device a lot.  
 
 
-<br>
 <a id="sample-file-tree-1"></a>
 ### Sample File Tree
 ```
@@ -169,7 +168,6 @@ Generally speaking, the results are stored in a `.xlsx` file. They are fairly co
 ```
 
 
-<br>
 <a id="getting-started-1"></a>
 ### Getting Started
 
