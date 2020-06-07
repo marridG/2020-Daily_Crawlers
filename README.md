@@ -16,7 +16,7 @@ Some Crawlers for Daily Data Collection, through Naive Approaches (without `Scra
     - [Sample File Tree](#sample-file-tree)
     - [Getting Started](#getting-started)
     - [Results](#results)
-- [MCM/ICM Results \(Under Construction\)](#mcmicm-results-under-construction)
+- [MCM/ICM Results](#mcmicm-results)
     - [Description](#description-1)
     - [Sample File Tree](#sample-file-tree-1)
     - [Getting Started](#getting-started-1)
@@ -115,8 +115,8 @@ Generally speaking, the results are stored in a `.xlsx` file. They are fairly co
 <br><br><br>
 
 
-<a id="mcmicm-results-under-construction"></a>
-## MCM/ICM Results (Under Construction)
+<a id="mcmicm-results"></a>
+## MCM/ICM Results
 <a id="description-1"></a>
 ### Description
 - **Repository Folder Name**:  `./202004 MCM_ICM Results/`
