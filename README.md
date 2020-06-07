@@ -20,7 +20,6 @@ Some Crawlers for Daily Data Collection, through Naive Approaches (without `Scra
     - [Description](#description-1)
     - [Sample File Tree](#sample-file-tree-1)
     - [Getting Started](#getting-started-1)
-        - [Environment](#environment)
         - [Possible Goals and Modes](#possible-goals-and-modes)
         - [Usage](#usage-1)
         - [Customized Settings](#customized-settings)
@@ -40,7 +39,7 @@ Some Crawlers for Daily Data Collection, through Naive Approaches (without `Scra
 <a id="usage"></a>
 ## Usage
 1. Simply clone/download the files in the repository
-2. Ensure all \"`import`\"s (modules/packages) are installed
+2. Execute command `pip install -r requirements.txt` (or in other form),to install/ensure all required modules/packages are satisfied.
 3. Specify path, check global variables
 4. Run the codes and *have a cup of coffee* when you wait for the execution
 
@@ -88,12 +87,7 @@ All data belong to the corresponding source sites. The crawlers (sometimes toget
 
 <a id="getting-started"></a>
 ### Getting Started
-Please check the following necessary Python modules/packages  
-```
-  os, shutil, datetime, time, logging, json, tqdm, urllib, re, bs4, string, lxml, html2text, numpy, pandas
-```
-
-There are also some global variables that you may be concerned about, for customized settings and an easier use:
+There are some global variables that you may be concerned about, for customized settings and an easier use:
 
 - `ROOT`: Root URL of source site. Please do not modify unless invalid.
 - `NAME_LIST_URL`: URL of source page. Please do not modify unless invalid.
@@ -159,6 +153,7 @@ Generally speaking, the results are stored in a `.xlsx` file. They are fairly co
 <br>
 <a id="sample-file-tree-1"></a>
 ### Sample File Tree
+
 ```
   ─┬─ root                  <folder>    working root, please make sure path exists
    │                                        (assigned as OUTPUT_DES_ROOT in Crawler, PATH in Parser)
@@ -176,27 +171,6 @@ Generally speaking, the results are stored in a `.xlsx` file. They are fairly co
 <br>
 <a id="getting-started-1"></a>
 ### Getting Started
-
-
-<a id="environment"></a>
-#### Environment
-Please check the following necessary Python modules/packages for desired functionalities:  
-
-- Crawler only:  
-```
-    os, sys, shutil, tqdm, urllib, socket, datetime, numpy, time
-```
-- Parser Only:  
-```
-    os, re, shutil, time, datetime, urllib, socket, copy, json, logging, 
-    cv2, fitz, pytesseract, PIL, tqdm, numpy
-```
-- Crawler and Parser:  
-```
-    os, sys, re, shutil, time, datetime, urllib, socket, copy, json, logging,
-    cv2, fitz, pytesseract, PIL, tqdm, numpy
-```
-
 
 <a id="possible-goals-and-modes"></a>
 #### Possible Goals and Modes
@@ -307,12 +281,7 @@ Generally speaking, the results are stored in `.json` files. They are fairly com
 
 <a id="getting-started-2"></a>
 ### Getting Started
-Please check the following necessary Python modules/packages  
-```
-  os, shutil, datetime, logging, json, tqdm, urllib, re, bs4
-```
-
-There are also some global variables that you may be concerned about, for customized settings and an easier use:   
+There are some global variables that you may be concerned about, for customized settings and an easier use:   
 
 - `URL_ROOT`: Source URL. Please do NOT modify unless invalid.
 - `FILE_ROOT`: Project-based workspace, also the path where all results and caches are stored. Please make sure such a path exists. All file operations are done in such a path.
